@@ -5,3 +5,7 @@
 .question {
   min-height: 90vh;
 }
+
+.answer:hover {
+  background-color: $white;
+}

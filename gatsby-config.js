@@ -1,4 +1,7 @@
+const pathPrefix = process.env.NODE_ENV === 'production' ? '/workshop' : undefined;
+
 module.exports = {
+  pathPrefix,
   siteMetadata: {
     title: 'Workshop',
     siteUrl: 'https://michelebruno.github.io/workshop',
