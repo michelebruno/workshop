@@ -21,20 +21,27 @@ function Question({
         <motion.h2 className="h1">{title}</motion.h2>
       </div>
       <div className="col-12 mt-auto">
+        { !answered && (
         <motion.div className="p-0 row border border-4 border-start-0 border-end-0 overflow-hidden">
           {!answered && answers.map(({ label, isTrue }, index) => (
             <motion.button
               variants={{
                 visible: (index) => ({
-                  translateY: [200, 0],
-                  opacity: [0, 1],
+                  translateY: 0,
+                  opacity: 1,
                   transition: {
                     duration: 0.25,
                     delay: index * 0.3,
                   },
                 }),
+                hidden: {
+                  opacity: 0,
+                  translateY: 200,
+                },
               }}
-              animate="visible"
+              whileHover={{ backgroundColor: 'var(--bs-white)' }}
+              animate={active ? 'visible' : 'hidden'}
+              initial="hidden"
               className="answer btn btn-primary border-4 border-start-0 border-end-0 border-top-0 border-dark answer col-12 col-md-6 text-center py-5"
               key={label}
               custom={index}
@@ -45,6 +52,7 @@ function Question({
             </motion.button>
           ))}
         </motion.div>
+        )}
       </div>
       {answered && (
         <>

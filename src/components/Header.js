@@ -7,7 +7,6 @@ export default function Header({ left, className }) {
       <div className="col ">
         <Link to="/">
           <span>Logo</span>
-
         </Link>
       </div>
       {left && <div className="col  text-end">{left}</div>}
