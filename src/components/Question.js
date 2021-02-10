@@ -4,31 +4,28 @@ import Header from './Header';
 const RIGHT = 'right';
 const WRONG = 'wrong';
 
-export function Answer({ value, right }) {
-
-}
-
-export default function Question({
-  onNext, answers, position, title, children, active,
+function Question({
+  onNext, answers, position, title, children, active, score, onAnswer,
 }) {
   const [answered, setAnswered] = useState(false);
-  const [score, setScore] = useState(0);
   return (
     <div
-      className={`question row border border-dark border-4 border-bottom-0 border-top-0 align-items-stretch${active ?? 'd-none'}`}
+      className={`question row border border-dark border-4 border-bottom-0 border-top-0 align-items-stretch ${!active ? 'd-none' : ''}`}
     >
       <div className="col-12">
         <Header left={`Score ${score}`} />
       </div>
       <div className="col-12">
-        <h2>{title}</h2>
+        <span className="h3 pb-5 text-primary">{position}</span>
+        <h2 className="h1">{title}</h2>
       </div>
       <div className="col-12 mt-auto">
         <div className="row border-top">
           {!answered && answers.map(({ label, isTrue }) => (
             <button
-              className="btn btn-primary border-4 border-start-0 border-end-0 border-top-0 border-dark answer col-12 col-md-6 px-5 py-4"
+              className="btn btn-primary border-4 border-start-0 border-end-0 border-top-0 border-dark answer col-12 col-md-6 text-center py-4"
               key={label}
+              type="button"
               onClick={() => setAnswered(isTrue ? RIGHT : WRONG)}
             >
               {label}
@@ -52,3 +49,4 @@ export default function Question({
     </div>
   );
 }
+export default Question;
