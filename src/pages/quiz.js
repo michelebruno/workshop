@@ -2,8 +2,9 @@ import React from 'react';
 import Question from '../components/Question';
 
 export default function Quiz() {
-  return <main className='container'>
-    <Question
+  return (
+    <main className="container d-flex min-vh-100 align-items-center">
+      <Question
         answers={[
           {
             label: '40 minutes',
@@ -22,9 +23,8 @@ export default function Quiz() {
             isTrue: false,
           },
         ]}
-    title="How long does it take on average to read the term of use?"
-    >
-
-    </Question>
-  </main>;
+        title="How long does it take on average to read the term of use?"
+      />
+    </main>
+  );
 }

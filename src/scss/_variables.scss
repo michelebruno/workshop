@@ -14,9 +14,17 @@ $primary: $red;
 $gray-900: #302F2B;
 
 
-$border-color:                $gray-900;
+$border-color: $gray-900;
 
-$border-radius:               0;
-$border-radius-sm:            .2rem !default;
-$border-radius-lg:            .3rem !default;
-$border-radius-pill:          50rem !default;
+$border-radius: 0;
+$border-radius-sm: .2rem !default;
+$border-radius-lg: .3rem !default;
+$border-radius-pill: 50rem !default;
+
+@font-face {
+  font-family: Messapia;
+  font-weight: bold;
+  src: url(../fonts/Messapia/Messapia-Bold.woff) format('woff');
+}
+
+$font-family-sans-serif: Messapia, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
