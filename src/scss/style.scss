@@ -8,4 +8,25 @@
 
 .answer:hover {
   background-color: $white;
+  transition: background-color 300ms;
+}
+
+.cool-shadow, .question {
+  background: $white;
+  position: relative;
+
+  &:before {
+    content: '';
+    z-index: -2;
+    position: absolute;
+    display: block;
+    top: 30px;
+    left: -30px;
+    width: 100%;
+    height: 100%;
+    background-size: 6px 6px;
+    background-image: transparent;
+    background-image: radial-gradient($black 33%, transparent 33%);
+    background-repeat: repeat;
+  }
 }

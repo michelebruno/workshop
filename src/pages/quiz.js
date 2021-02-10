@@ -25,22 +25,22 @@ const questions = [
     children: <span>Ciao</span>,
   },
   {
-    title: 'How long does it finish this workshop?',
+    title: 'do you know what cookies are?',
     answers: [
       {
-        label: '40 minutes',
+        label: 'some kind of app guidelines',
+        isTrue: false,
+      },
+      {
+        label: 'Something that serve to make a site work better',
         isTrue: true,
       },
       {
-        label: '10 minutes',
+        label: 'Software of the browser that allow you to visit a website',
         isTrue: false,
       },
       {
-        label: '10 mi nutes',
-        isTrue: false,
-      },
-      {
-        label: '1 minutes',
+        label: 'the conditions you have to accept when you go on a site',
         isTrue: false,
       },
     ],
@@ -57,23 +57,25 @@ export default function Quiz() {
   const [score, setScore] = useState(0);
 
   return (
-    <main className="container d-flex min-vh-100 align-items-center">
-      {questions.map((question, index) => (
-        <Question
-          key={question.title}
-          score={score}
-          onAnswer={() => setScore((s) => s + 50)}
-          active={index === currentIndex}
-          position={`${index + 1}/${questions.length}`}
-          {...question}
-          onNext={moveOn}
-        />
-      ))}
-      {currentIndex === questions.length && (
-      <div>
-        Finished
+    <main className=" container d-flex min-vh-100 align-items-center">
+      <div className="">
+        {questions.map((question, index) => (
+          <Question
+            key={question.title}
+            score={score}
+            onAnswer={() => setScore((s) => s + 50)}
+            active={index === currentIndex}
+            position={`${index + 1}/${questions.length}`}
+            {...question}
+            onNext={moveOn}
+          />
+        ))}
+        {currentIndex === questions.length && (
+          <div>
+            Finished
+          </div>
+        )}
       </div>
-      )}
     </main>
   );
 }
