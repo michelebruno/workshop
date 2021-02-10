@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from './Header';
 
 const RIGHT = 'right';
 const WRONG = 'wrong';
@@ -14,8 +15,11 @@ export default function Question({
 
   return (
     <div
-      className={`question row border border-dark border-4 border-bottom-0 align-items-stretch${active ?? 'd-none'}`}
+      className={`question row border border-dark border-4 border-bottom-0 border-top-0 align-items-stretch${active ?? 'd-none'}`}
     >
+      <div className="col-12">
+        <Header />
+      </div>
       <div className="col-12">
         <h2>{title}</h2>
       </div>
