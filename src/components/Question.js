@@ -12,13 +12,13 @@ export default function Question({
   onNext, answers, position, title, children, active,
 }) {
   const [answered, setAnswered] = useState(false);
-
+  const [score, setScore] = useState(0);
   return (
     <div
       className={`question row border border-dark border-4 border-bottom-0 border-top-0 align-items-stretch${active ?? 'd-none'}`}
     >
       <div className="col-12">
-        <Header />
+        <Header left={`Score ${score}`} />
       </div>
       <div className="col-12">
         <h2>{title}</h2>
@@ -43,7 +43,7 @@ export default function Question({
 
           </div>
           <div className="col-12 mt-auto border-bottom border-4 text-end ">
-            <button className="btn btn-text" onClick={onNext}>
+            <button type="button" className="btn btn-text" onClick={onNext}>
               Next
             </button>
           </div>
