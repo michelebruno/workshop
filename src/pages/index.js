@@ -1,5 +1,7 @@
 import * as React from 'react';
 import '../scss/style.scss';
+import { Link } from 'gatsby';
+
 // markup
 const IndexPage = () => (
   <main>
@@ -14,6 +16,9 @@ const IndexPage = () => (
       <span role="img" aria-label="Party popper emojis">
         🎉🎉🎉
       </span>
+      <Link to="quiz">
+        Start quiz
+      </Link>
     </h1>
   </main>
 );
