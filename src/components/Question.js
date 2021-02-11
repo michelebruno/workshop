@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import lottie from 'lottie-web';
 import Header from './Header';
 import Animation, { SUCCESSFUL, FAILURE } from './Animation';
 

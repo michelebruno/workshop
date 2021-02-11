@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import lottie from 'lottie-web';
 import { motion } from 'framer-motion';
 
@@ -7,10 +7,8 @@ import failure from '../svg/false.json';
 
 export const SUCCESSFUL = 'successful';
 export const FAILURE = 'failure';
-export default function Animation({ animation, onComplete }) {
+export default function Animation({ animation }) {
   const container = React.createRef();
-
-  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     let animationData;
@@ -32,13 +30,12 @@ export default function Animation({ animation, onComplete }) {
         className: 'w-75 h-auto',
       },
     });
-
-    onComplete && anim.addEventListener('complete', onComplete);
   }, []);
 
   return (
     <motion.div
       id="true"
+      animate="hidden"
       variants={{
         visible: {
           opacity: 1,
