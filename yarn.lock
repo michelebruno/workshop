@@ -11268,13 +11268,6 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-bodymovin@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-bodymovin/-/react-bodymovin-2.0.0.tgz#0b93732b23f43682bd658ee5dd18c4f00cc19925"
-  integrity sha512-72MWWvPyF2Ah329+z0dVEvyNce+aiY2xOw7I9FzO8Xc15BWYvOQOnqzLTxSWjaZAdenk7e9vSanBCtB8Fqi7Cg==
-  dependencies:
-    bodymovin "^4.13.0"
-
 react-dev-utils@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.3.tgz#5b42d9ea58d5e9e017a2f57a40a8af408a3a46fb"

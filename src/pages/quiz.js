@@ -7,6 +7,7 @@ import { ReactComponent as Cookie } from '../svg/cookies.svg';
 import { ReactComponent as One } from '../svg/question1.svg';
 import { ReactComponent as Three } from '../svg/question3.svg';
 import { ReactComponent as Four } from '../svg/question4.svg';
+import { ReactComponent as Five } from '../svg/question5.svg';
 
 function InfographicsWrapper({ children }) {
   return (
@@ -108,7 +109,7 @@ const questions = [
     title: 'What may happen after you store one of your personal pictures on your cloud/google drive?',
     answers: [
       {
-        label: 'because they are paid by other companies and society',
+        label: 'They are saved in your own server',
         isTrue: false,
       },
       {
@@ -120,7 +121,7 @@ const questions = [
         isTrue: false,
       },
       {
-        label: 'because they collect and sell our data to third-party',
+        label: 'They are saved in a drive always accessible by all devices.',
         isTrue: true,
       },
     ],
@@ -148,12 +149,10 @@ const questions = [
         isTrue: true,
       },
     ],
-    children: <span>
-      “if the service is free, the product is you”
-      gratuita e questo accade perché inseriamo, volontariamente i nostri dati all’interno dei vari portali e siti. quello che tu pubblichi, quello che tu fai, è tutto tracciato, immagazzinato e ritirato fuori nel momento del bisogno, quando qualcuno è disposto a pagare per poter utilizzare i tuoi dati. Chiunque voglia fare pubblicità sui social sta “affittando” i tuoi dati per poter far vedere solo a te il proprio spot, permettono di settorializzare, o targettizzare la nostra pubblicità e farla arrivare esattamente a chi ha bisogno.
-      es. se scrivi che vuoi della pizza sul tuo programma di messaggistica preferito è molto probabile che se navighi appena dopo su Facebook ti ritrovi delle pubblicità della pizza. Questo perché anche le nostre conversazioni private sono tracciate e utilizzate a scopi commerciali.
-      WhatsApp manda dati sul comportamento degli utenti a Facebook per creare pubblicità specifiche (L’utente può scegliere se condividere i propri dati con altre applicazioni o meno. Si può disattivare la condivisione dalle impostazioni di WhatsApp)
-    </span>,
+
+    children: <InfographicsWrapper>
+      <Four style={{ maxHeight: '500px' }} className="mx-auto" />
+    </InfographicsWrapper>,
   },
   {
     title: 'which of this action doesn’t involve data collection?',

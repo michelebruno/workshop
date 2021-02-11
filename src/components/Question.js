@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import lottie from 'lottie-web';
 import Header from './Header';
+import Animation from './Animation';
+
+import success from '../svg/true.json';
+import failure from '../svg/false.json';
 
 const RIGHT = 'right';
 const WRONG = 'wrong';
@@ -26,6 +30,8 @@ function Question({
           <motion.h2 className="h1">{title}</motion.h2>
         </div>
         <div className="col-12 mt-auto">
+          {answered === RIGHT && <Animation animationData={success} />}
+          {answered === WRONG && <Animation animationData={failure} />}
           {!answered && (
           <motion.div className={'p-0 row row-cols-1 row-cols-md-2 justify-content-center '
           + 'border border-4 border-start-0 border-end-0 '
@@ -66,7 +72,6 @@ function Question({
         </div>
         {answered && (
         <>
-
           <div className="col-12 ">
             {children}
 
@@ -74,6 +79,8 @@ function Question({
           <div className="col-12 mt-auto border-bottom border-4 text-end ">
             <button type="button" className="btn btn-text" onClick={onNext}>
               Next
+              {' '}
+              <i className="bi bi-chevron-double-right" />
             </button>
           </div>
         </>

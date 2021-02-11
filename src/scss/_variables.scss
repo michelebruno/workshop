@@ -9,11 +9,9 @@ $green: #49E303;
 $teal: #20c997 !default;
 $cyan: #00AEEF;
 
-$primary: $red;
+//$primary: $red;
 
 $gray-900: #302F2B;
-
-
 
 
 $border-color: $gray-900;
@@ -42,3 +40,6 @@ $container-max-widths: (
 
 $grid-gutter-width: 4rem;
 $spacer: 1.5rem;
+
+$font-size-root: 18px;
+
