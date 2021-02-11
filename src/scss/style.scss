@@ -28,9 +28,12 @@
   background: $white;
   position: relative;
 
+
+  --zindex : -2;
   &:before {
     content: '';
     z-index: -2;
+    z-index: var(--zindex);
     position: absolute;
     display: block;
     top: 30px;

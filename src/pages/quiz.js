@@ -1,8 +1,34 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Question from '../components/Question';
+
 import { ReactComponent as Cookie } from '../svg/cookies.svg';
+import { ReactComponent as One } from '../svg/question1.svg';
+import { ReactComponent as Three } from '../svg/question3.svg';
+import { ReactComponent as Four } from '../svg/question4.svg';
+
+function InfographicsWrapper({ children }) {
+  return (
+
+    <motion.div
+      animate="visible"
+      variants={{
+        hidden: {
+          opacity: 0,
+        },
+        visible: {
+          opacity: 1,
+        },
+      }}
+      initial="hidden"
+      className="mx-auto"
+      style={{ width: 'max-content' }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const questions = [
   {
@@ -25,9 +51,13 @@ const questions = [
         isTrue: false,
       },
     ],
+
+    children: <div className="mx-auto" style={{ width: 'max-content' }}>
+      <One style={{ maxHeight: '500px' }} className="mx-auto" />
+    </div>,
   },
   {
-    title: 'do you know what cookies are?',
+    title: 'Do you know what cookies are?',
     answers: [
       {
         label: 'Some kind of app guidelines',
@@ -46,10 +76,60 @@ const questions = [
         isTrue: false,
       },
     ],
-    children: <Cookie />,
+    children: <InfographicsWrapper>
+      <Cookie style={{ maxHeight: '500px' }} className="mx-auto" />
+    </InfographicsWrapper>,
   },
   {
-    title: 'why do you think social media are free?',
+    title: 'Why do you think social media are free?',
+    answers: [
+      {
+        label: 'because they are paid by other companies and society',
+        isTrue: false,
+      },
+      {
+        label: 'their shares are listed on the stock exchange',
+        isTrue: false,
+      },
+      {
+        label: 'to engage people who are not willing to pay for such services on the platforms',
+        isTrue: false,
+      },
+      {
+        label: 'because they collect and sell our data to third-party',
+        isTrue: true,
+      },
+    ],
+    children: <InfographicsWrapper>
+      <Three style={{ maxHeight: '500px' }} />
+    </InfographicsWrapper>,
+  },
+  {
+    title: 'What may happen after you store one of your personal pictures on your cloud/google drive?',
+    answers: [
+      {
+        label: 'because they are paid by other companies and society',
+        isTrue: false,
+      },
+      {
+        label: 'their shares are listed on the stock exchange',
+        isTrue: false,
+      },
+      {
+        label: 'to engage people who are not willing to pay for such services on the platforms',
+        isTrue: false,
+      },
+      {
+        label: 'because they collect and sell our data to third-party',
+        isTrue: true,
+      },
+    ],
+    children: <InfographicsWrapper>
+      <Four style={{ maxHeight: '500px' }} />
+    </InfographicsWrapper>,
+  },
+  {
+    title: 'Can you delete your data from Google servers?',
     answers: [
       {
         label: 'because they are paid by other companies and society',
@@ -76,23 +156,23 @@ const questions = [
     </span>,
   },
   {
-    title: 'what may happen after you store one of your personal pictures on your cloud/google drive?',
+    title: 'which of this action doesn’t involve data collection?',
     answers: [
       {
-        label: 'because they are paid by other companies and society',
+        label: 'Watching a film on Netflix',
         isTrue: false,
       },
       {
-        label: 'their shares are listed on the stock exchange',
+        label: 'Getting a fidelity card at the supermarket',
         isTrue: false,
       },
       {
-        label: 'to engage people who are not willing to pay for such services on the platforms',
+        label: 'Scrolling the feed of Instagram',
         isTrue: false,
       },
       {
-        label: 'because they collect and sell our data to third-party',
-        isTrue: true,
+        label: 'Adjusting the thermostat from the smartphone',
+        isTrue: false,
       },
     ],
     children: <span>
@@ -103,7 +183,7 @@ const questions = [
     </span>,
   },
   {
-    title: 'can you delete your data from google servers?',
+    title: 'what do you think your data cannot be used for?',
     answers: [
       {
         label: 'because they are paid by other companies and society',
