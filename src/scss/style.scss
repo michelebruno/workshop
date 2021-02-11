@@ -18,6 +18,37 @@
 }
 
 .answer {
+  position: relative;
+  z-index: 0;
+  color: $white;
+   border-bottom: solid $dark map-get($border-widths, 4);
+
+  &:before {
+    content: '';
+    background-color: $primary;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all .15s ease-in-out;
+
+  }
+
+  &:hover {
+
+    text-decoration: underline;
+    text-underline-style: double;
+    text-underline-offset: 3px;
+
+    &::before {
+
+      background-image: radial-gradient(transparentize($dark,.8) 33%, transparent 33%)  ;
+      background-size: 6px 6px;
+      background-repeat: repeat;
+    }
+  }
 
   &:nth-child(odd) {
     border-right: map-get($border-widths, 4) solid $dark !important;
@@ -29,7 +60,8 @@
   position: relative;
 
 
-  --zindex : -2;
+  --zindex: -2;
+
   &:before {
     content: '';
     z-index: -2;

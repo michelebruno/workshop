@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import lottie from 'lottie-web';
 import Header from './Header';
-import Animation from './Animation';
-
-import success from '../svg/true.json';
-import failure from '../svg/false.json';
+import Animation, { SUCCESSFUL, FAILURE } from './Animation';
 
 const RIGHT = 'right';
 const WRONG = 'wrong';
@@ -13,7 +10,7 @@ const WRONG = 'wrong';
 function Question({
   onNext, answers, position, title, children, active, score, onAnswer,
 }) {
-  const [answered, setAnswered] = useState(false);
+  const [answered, setAnswered] = useState();
 
   return (
     <>
@@ -30,8 +27,8 @@ function Question({
           <motion.h2 className="h1">{title}</motion.h2>
         </div>
         <div className="col-12 mt-auto">
-          {answered === RIGHT && <Animation animationData={success} />}
-          {answered === WRONG && <Animation animationData={failure} />}
+          {answered === RIGHT && <Animation animation={SUCCESSFUL} />}
+          {answered === WRONG && <Animation animation={FAILURE} />}
           {!answered && (
           <motion.div className={'p-0 row row-cols-1 row-cols-md-2 justify-content-center '
           + 'border border-4 border-start-0 border-end-0 '
@@ -39,7 +36,7 @@ function Question({
           >
 
             {!answered && answers.map(({ label, isTrue }, index) => (
-              <motion.button
+              <motion.div
                 variants={{
                   visible: (index) => ({
                     translateY: 0,
@@ -57,7 +54,7 @@ function Question({
                 animate={active ? 'visible' : 'hidden'}
                 initial="hidden"
                 className={'answer '
-                + 'btn btn-primary text-start px-3 py-5 '
+                + 'text-start px-3 py-5 '
                 + 'border-4 border-start-0 border-end-0 border-top-0 border-dark '}
                 key={label}
                 custom={index}
@@ -65,7 +62,7 @@ function Question({
                 onClick={() => setAnswered(isTrue ? RIGHT : WRONG)}
               >
                 {label}
-              </motion.button>
+              </motion.div>
             ))}
           </motion.div>
           )}

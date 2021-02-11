@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 import { AnimatePresence, motion } from 'framer-motion';
 import Question from '../components/Question';
+import '../scss/style.scss';
 
 import { ReactComponent as Cookie } from '../svg/cookies.svg';
 import { ReactComponent as One } from '../svg/question1.svg';
@@ -174,12 +175,9 @@ const questions = [
         isTrue: false,
       },
     ],
-    children: <span>
-      “if the service is free, the product is you”
-      gratuita e questo accade perché inseriamo, volontariamente i nostri dati all’interno dei vari portali e siti. quello che tu pubblichi, quello che tu fai, è tutto tracciato, immagazzinato e ritirato fuori nel momento del bisogno, quando qualcuno è disposto a pagare per poter utilizzare i tuoi dati. Chiunque voglia fare pubblicità sui social sta “affittando” i tuoi dati per poter far vedere solo a te il proprio spot, permettono di settorializzare, o targettizzare la nostra pubblicità e farla arrivare esattamente a chi ha bisogno.
-      es. se scrivi che vuoi della pizza sul tuo programma di messaggistica preferito è molto probabile che se navighi appena dopo su Facebook ti ritrovi delle pubblicità della pizza. Questo perché anche le nostre conversazioni private sono tracciate e utilizzate a scopi commerciali.
-      WhatsApp manda dati sul comportamento degli utenti a Facebook per creare pubblicità specifiche (L’utente può scegliere se condividere i propri dati con altre applicazioni o meno. Si può disattivare la condivisione dalle impostazioni di WhatsApp)
-    </span>,
+    children: <InfographicsWrapper>
+      <Five style={{ maxHeight: '500px' }} className="mx-auto" />
+    </InfographicsWrapper>,
   },
   {
     title: 'what do you think your data cannot be used for?',
@@ -209,7 +207,6 @@ const questions = [
     </span>,
   },
 ];
-
 export default function Quiz() {
   const [currentIndex, setIndex] = useState(0);
 

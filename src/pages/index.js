@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../scss/style.scss';
 import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import animation from '../svg/true.json';
 import { ReactComponent as Logo } from '../svg/logo.svg';
-import Animation from '../components/Animation';
 
 // markup
 const IndexPage = () => (
@@ -13,7 +11,6 @@ const IndexPage = () => (
     <Helmet>
       <title>Home page</title>
     </Helmet>
-    <Animation animationData={animation} />
     <div className="w-100 ">
       <div className="row">
         <div className="col-6 offset-3 py-4">
