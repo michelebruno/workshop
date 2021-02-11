@@ -2,8 +2,26 @@
 
 @import "~bootstrap";
 
+.btn-primary {
+  color: $white;
+
+
+  &:hover {
+    color: $dark;
+    background-color: $white !important;
+  }
+}
+
 .question {
   min-height: 90vh;
+
+}
+
+.answer {
+
+  &:nth-child(odd) {
+    border-right: map-get($border-widths, 4) solid $dark !important;
+  }
 }
 
 .cool-shadow, .question {

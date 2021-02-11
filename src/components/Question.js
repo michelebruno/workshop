@@ -39,7 +39,6 @@ function Question({
                   translateY: 200,
                 },
               }}
-              whileHover={{ backgroundColor: 'var(--bs-white)' }}
               animate={active ? 'visible' : 'hidden'}
               initial="hidden"
               className="answer btn btn-primary border-4 border-start-0 border-end-0 border-top-0 border-dark answer col-12 col-md-6 text-center py-5"

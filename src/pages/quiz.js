@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
+import { AnimatePresence } from 'framer-motion';
 import Question from '../components/Question';
+import { ReactComponent as Cookie } from '../svg/cookies.svg';
 
 const questions = [
   {
@@ -11,15 +13,15 @@ const questions = [
         isTrue: true,
       },
       {
-        label: '10 minutes',
+        label: 'More than one hour',
         isTrue: false,
       },
       {
-        label: '10 mi nutes',
+        label: '120 minutes',
         isTrue: false,
       },
       {
-        label: '1 minutes',
+        label: '5 minutes',
         isTrue: false,
       },
     ],
@@ -28,7 +30,7 @@ const questions = [
     title: 'do you know what cookies are?',
     answers: [
       {
-        label: 'some kind of app guidelines',
+        label: 'Some kind of app guidelines',
         isTrue: false,
       },
       {
@@ -40,20 +42,11 @@ const questions = [
         isTrue: false,
       },
       {
-        label: 'the conditions you have to accept when you go on a site',
+        label: 'The conditions you have to accept when you go on a site',
         isTrue: false,
       },
     ],
-    children: <span>
-      "cookies" sono file di testo in cui sono scritte informazioni riguardo il sito visitato ed il computer usato per navigare
-      hanno una scadenza e dopo un determinato periodo di tempo si cancellano automaticamente se non vengono rinnovati (visitando di nuovo un sito)
-      prima parte: informazioni come il numero di sessioni o di visualizzazioni di pagina
-      terza parte: possono essere trasmessi a un sito diverso da quello visitato ed implicano questioni di privacy
-      Cookie di sessione: più sicuri, ricorda l’identità di un computer durante la navigazione tra pagine, quando termina la sessione, smette di funzionare
-      Cookie persistenti: permanenti (quasi), memorizzare preferenze degli utenti
-      Evercookie, cookie zombie e supercookie: non proprio cookie/salvataggi di dati, ma routine in grado di autoreplicarsi anche dopo che la cache del browser è stata svuotata
-      Di per sé, i cookie non possono danneggiare un computer, ma possono aiutare gli hacker a infiltrarsi e recuperare le informazioni contenute nei cookie
-    </span>,
+    children: <Cookie />,
   },
   {
     title: 'why do you think social media are free?',
@@ -151,15 +144,18 @@ export default function Quiz() {
     <main className="container d-flex min-vh-100 align-items-center">
       <div className="">
         {questions.map((question, index) => (
-          <Question
-            key={question.title}
-            score={score}
-            onAnswer={() => setScore((s) => s + 50)}
-            active={index === currentIndex}
-            position={`${index + 1}/${questions.length}`}
-            {...question}
-            onNext={moveOn}
-          />
+
+          <AnimatePresence key={question.title}>
+            <Question
+              score={score}
+              onAnswer={() => setScore((s) => s + 50)}
+              active={index === currentIndex}
+              position={`${index + 1}/${questions.length}`}
+              {...question}
+              onNext={moveOn}
+            />
+          </AnimatePresence>
+
         ))}
         {currentIndex === questions.length && navigate('/about', { state: { score } })}
       </div>
