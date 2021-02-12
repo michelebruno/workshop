@@ -25,7 +25,7 @@ function InfographicsWrapper({ children }) {
       }}
       initial="hidden"
       className="mx-auto"
-      style={{ width: 'max-content' }}
+      style={{ width: 'min-content' }}
     >
       {children}
     </motion.div>
@@ -54,9 +54,7 @@ const questions = [
       },
     ],
 
-    children: <div className="mx-auto" style={{ width: 'max-content' }}>
-      <One style={{ maxHeight: '500px' }} className="mx-auto" />
-    </div>,
+    children: <InfographicsWrapper><One style={{ maxHeight: '500px' }} className="mx-auto" /></InfographicsWrapper>,
   },
   {
     title: 'Do you know what cookies are?',
@@ -78,9 +76,7 @@ const questions = [
         isTrue: false,
       },
     ],
-    children: <InfographicsWrapper>
-      <Cookie style={{ maxHeight: '500px' }} className="mx-auto" />
-    </InfographicsWrapper>,
+    children: <InfographicsWrapper><Cookie style={{ maxHeight: '500px' }} className="mx-auto" /></InfographicsWrapper>,
   },
   {
     title: 'Why do you think social media are free?',
@@ -102,9 +98,7 @@ const questions = [
         isTrue: true,
       },
     ],
-    children: <InfographicsWrapper>
-      <Three style={{ maxHeight: '500px' }} />
-    </InfographicsWrapper>,
+    children: <InfographicsWrapper><Three style={{ maxHeight: '500px' }} /></InfographicsWrapper>,
   },
   {
     title: 'What may happen after you store one of your personal pictures on your cloud/google drive?',
@@ -126,9 +120,7 @@ const questions = [
         isTrue: true,
       },
     ],
-    children: <InfographicsWrapper>
-      <Four style={{ maxHeight: '500px' }} />
-    </InfographicsWrapper>,
+    children: <InfographicsWrapper><Four style={{ maxHeight: '500px' }} /></InfographicsWrapper>,
   },
   {
     title: 'Can you delete your data from Google servers?',
@@ -151,9 +143,7 @@ const questions = [
       },
     ],
 
-    children: <InfographicsWrapper>
-      <Four style={{ maxHeight: '500px' }} className="mx-auto" />
-    </InfographicsWrapper>,
+    children: <InfographicsWrapper><Four style={{ maxHeight: '500px' }} className="mx-auto" /></InfographicsWrapper>,
   },
   {
     title: 'which of this action doesn’t involve data collection?',
@@ -175,9 +165,7 @@ const questions = [
         isTrue: false,
       },
     ],
-    children: <InfographicsWrapper>
-      <Five style={{ maxHeight: '500px' }} className="mx-auto" />
-    </InfographicsWrapper>,
+    children: <InfographicsWrapper><Five style={{ maxHeight: '500px' }} className="mx-auto" /></InfographicsWrapper>,
   },
   {
     title: 'what do you think your data cannot be used for?',
@@ -199,12 +187,6 @@ const questions = [
         isTrue: true,
       },
     ],
-    children: <span>
-      “if the service is free, the product is you”
-      gratuita e questo accade perché inseriamo, volontariamente i nostri dati all’interno dei vari portali e siti. quello che tu pubblichi, quello che tu fai, è tutto tracciato, immagazzinato e ritirato fuori nel momento del bisogno, quando qualcuno è disposto a pagare per poter utilizzare i tuoi dati. Chiunque voglia fare pubblicità sui social sta “affittando” i tuoi dati per poter far vedere solo a te il proprio spot, permettono di settorializzare, o targettizzare la nostra pubblicità e farla arrivare esattamente a chi ha bisogno.
-      es. se scrivi che vuoi della pizza sul tuo programma di messaggistica preferito è molto probabile che se navighi appena dopo su Facebook ti ritrovi delle pubblicità della pizza. Questo perché anche le nostre conversazioni private sono tracciate e utilizzate a scopi commerciali.
-      WhatsApp manda dati sul comportamento degli utenti a Facebook per creare pubblicità specifiche (L’utente può scegliere se condividere i propri dati con altre applicazioni o meno. Si può disattivare la condivisione dalle impostazioni di WhatsApp)
-    </span>,
   },
 ];
 export default function Quiz() {

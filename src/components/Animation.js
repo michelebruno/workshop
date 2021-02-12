@@ -27,9 +27,11 @@ export default function Animation({ animation }) {
       animationData,
       loop: false,
       rendererSettings: {
-        className: 'w-75 h-auto',
+        className: 'w-75 mx-auto  ',
       },
     });
+
+    return anim.destroy;
   }, []);
 
   return (

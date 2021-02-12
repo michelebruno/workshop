@@ -6,8 +6,42 @@ import Animation, { SUCCESSFUL, FAILURE } from './Animation';
 const RIGHT = 'right';
 const WRONG = 'wrong';
 
+function Answer({
+  label, isTrue, index, active, onAnswer,
+}) {
+  return (
+    <motion.div
+      variants={{
+        visible: (custom) => ({
+          translateY: 0,
+          opacity: 1,
+          transition: {
+            duration: 0.25,
+            delay: custom * 0.3,
+          },
+        }),
+        hidden: {
+          opacity: 0,
+          translateY: 200,
+        },
+      }}
+      animate={active ? 'visible' : 'hidden'}
+      initial="hidden"
+      className={'answer '
+      + 'text-start px-3 py-5 '
+      + 'border-4 border-start-0 border-end-0 border-top-0 border-dark '}
+      key={label}
+      custom={index}
+      type="button"
+      onClick={() => onAnswer(isTrue ? RIGHT : WRONG)}
+    >
+      {label}
+    </motion.div>
+  );
+}
+
 function Question({
-  onNext, answers, position, title, children, active, score, onAnswer,
+  onNext, answers, position, title, children, active, score,
 }) {
   const [answered, setAnswered] = useState();
 
@@ -29,57 +63,39 @@ function Question({
           {answered === RIGHT && <Animation animation={SUCCESSFUL} />}
           {answered === WRONG && <Animation animation={FAILURE} />}
           {!answered && (
-          <motion.div className={'p-0 row row-cols-1 row-cols-md-2 justify-content-center '
-          + 'border border-4 border-start-0 border-end-0 '
-          + 'overflow-hidden'}
-          >
-
-            {!answered && answers.map(({ label, isTrue }, index) => (
-              <motion.div
-                variants={{
-                  visible: (index) => ({
-                    translateY: 0,
-                    opacity: 1,
-                    transition: {
-                      duration: 0.25,
-                      delay: index * 0.3,
-                    },
-                  }),
-                  hidden: {
-                    opacity: 0,
-                    translateY: 200,
-                  },
-                }}
-                animate={active ? 'visible' : 'hidden'}
-                initial="hidden"
-                className={'answer '
-                + 'text-start px-3 py-5 '
-                + 'border-4 border-start-0 border-end-0 border-top-0 border-dark '}
-                key={label}
-                custom={index}
-                type="button"
-                onClick={() => setAnswered(isTrue ? RIGHT : WRONG)}
-              >
-                {label}
-              </motion.div>
-            ))}
-          </motion.div>
+            <motion.div className={'p-0 row row-cols-1 row-cols-md-2 justify-content-center '
+            + 'border border-4 border-start-0 border-end-0 '
+            + 'overflow-hidden'}
+            >
+              {!answered && answers.map(
+                ({ label, isTrue }, index) => (
+                  <Answer
+                    label={label}
+                    isTrue={isTrue}
+                    index={index}
+                    key={label}
+                    active={active}
+                    onAnswer={setAnswered}
+                  />
+                ),
+              )}
+            </motion.div>
           )}
         </div>
         {answered && (
-        <>
-          <div className="col-12 ">
-            {children}
+          <>
+            <div className="col-12 ">
+              {children}
 
-          </div>
-          <div className="col-12 mt-auto border-bottom border-4 text-end ">
-            <button type="button" className="btn btn-text" onClick={onNext}>
-              Next
-              {' '}
-              <i className="bi bi-chevron-double-right" />
-            </button>
-          </div>
-        </>
+            </div>
+            <div className="col-12 mt-auto border-bottom border-4 text-end ">
+              <button type="button" className="btn btn-text" onClick={onNext}>
+                Next
+                {' '}
+                <i className="bi bi-chevron-double-right" />
+              </button>
+            </div>
+          </>
         )}
       </div>
     </>
