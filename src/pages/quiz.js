@@ -24,8 +24,7 @@ function InfographicsWrapper({ children }) {
         },
       }}
       initial="hidden"
-      className="mx-auto"
-      style={{ width: 'min-content' }}
+      // style={{ width: 'min-content' }}
     >
       {children}
     </motion.div>
@@ -54,7 +53,7 @@ const questions = [
       },
     ],
 
-    children: <InfographicsWrapper><One style={{ maxHeight: '500px' }} className="mx-auto" /></InfographicsWrapper>,
+    children: <InfographicsWrapper><One style={{ maxHeight: '500px' }} className="mx-auto d-block" /></InfographicsWrapper>,
   },
   {
     title: 'Do you know what cookies are?',
@@ -76,7 +75,7 @@ const questions = [
         isTrue: false,
       },
     ],
-    children: <InfographicsWrapper><Cookie style={{ maxHeight: '500px' }} className="mx-auto" /></InfographicsWrapper>,
+    children: <InfographicsWrapper><Cookie style={{ maxHeight: '500px' }} className="mx-auto d-block" /></InfographicsWrapper>,
   },
   {
     title: 'Why do you think social media are free?',
@@ -143,7 +142,7 @@ const questions = [
       },
     ],
 
-    children: <InfographicsWrapper><Four style={{ maxHeight: '500px' }} className="mx-auto" /></InfographicsWrapper>,
+    children: <InfographicsWrapper><Four style={{ maxHeight: '500px' }} className="mx-auto d-block" /></InfographicsWrapper>,
   },
   {
     title: 'which of this action doesn’t involve data collection?',
@@ -165,7 +164,7 @@ const questions = [
         isTrue: false,
       },
     ],
-    children: <InfographicsWrapper><Five style={{ maxHeight: '500px' }} className="mx-auto" /></InfographicsWrapper>,
+    children: <InfographicsWrapper><Five style={{ maxHeight: '500px' }} className="mx-auto d-block" /></InfographicsWrapper>,
   },
   {
     title: 'what do you think your data cannot be used for?',
